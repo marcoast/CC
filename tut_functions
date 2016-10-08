@@ -1,0 +1,4 @@
+function f1(Str)
+  write(Str)
+end
+f1("This is just a test.\nDon't worry.\n")
