@@ -9,7 +9,7 @@ local function writeCentered( text, u )
   local m = monitor.getSize()
   local centerXPos = ( m - string.len(text) ) / 2
   monitor.setCursorPos( centerXPos + 1, u )
-  monitor.write( text )
+  monitor.print( text )
 end
 
 monitor.setTextScale(1)
