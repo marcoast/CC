@@ -9,10 +9,10 @@ local function writeCentered( text, u )
   local m = monitor.getSize()
   local centerXPos = ( m - string.len(text) ) / 2
   monitor.setCursorPos( centerXPos + 1, u )
-  monitor.print( text )
+  monitor.write( text )
 end
 
-monitor.setTextScale(1)
+monitor.setTextScale(.5)
 monitor.setTextColor(colors.red)
 writeCentered("Welcome to BossLand!", 4)
 
