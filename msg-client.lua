@@ -21,22 +21,20 @@ function receive() -- Receives the message to print.
 end
 
 function screen() -- Prints the received message onto the monitor
-  local size = data[2]
-  local color = data[3]
   os.loadAPI("/rom/apis/colors") -- Loads the color API
   mon.setTextScale(size)
-  mon.setTextColor(color)
+  mon.setTextColor(col)
   local mon1 = term.redirect(mon)
-  print(data[1])
+  print(msg)
   term.redirect(mon1)
 end
 
 while true do
   print("Waiting on message....\n")
   receive(data)
+  msg,size,col = data[1],data[2],data[3]
   print("Message:\n")
-  print(data[1]) -- Prints message in terminal
-  print(data[3]) -- Prints color in terminal
+  print(msg) -- Prints message in terminal
   print()
   monCl()
   screen()
