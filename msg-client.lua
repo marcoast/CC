@@ -36,7 +36,8 @@ while true do
   print("Waiting on message....\n")
   receive(data)
   print("Message:\n")
-  print(data[1])
+  print(data[1]) -- Prints message in terminal
+  print(data[3]) -- Prints color in terminal
   print()
   monCl()
   screen()
