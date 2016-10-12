@@ -15,7 +15,7 @@ col = read()
 	if col == "" then
 		col = "white"
 	else
-		col == read()
+		col = read()
 	end
 modem.transmit(281,713,{msg,size,"colors."..col})
 print("Sent '"..msg.."'")
