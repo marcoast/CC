@@ -17,7 +17,7 @@ col = read()
 	else
 		col = col
 	end
-modem.transmit(281,713,{msg,size,"colors."..col})
+modem.transmit(281,713,{msg,size,col})
 print("Sent '"..msg.."'")
 sleep(2)
 end
