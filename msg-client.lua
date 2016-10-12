@@ -1,6 +1,8 @@
 term.clear()
 term.setCursorPos(1,1)
 
+os.loadAPI("/rom/apis/colors") -- Loads the color API
+
 modem = peripheral.wrap("top") -- Wrap top modem.
 modem.open(281,713,832) 
 mon = peripheral.wrap("right") -- Wrap monitor.
