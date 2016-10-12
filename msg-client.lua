@@ -35,6 +35,7 @@ while true do
   msg,size,col = data[1],data[2],data[3]
   print("Message:\n")
   print(msg) -- Prints message in terminal
+  print("Table: \n" .. textutils.serialize(data) ) -- temporary code | To see all data received
   print()
   monCl()
   screen()
