@@ -21,9 +21,8 @@ function receive() -- Receives the message to print.
 end
 
 function screen() -- Prints the received message onto the monitor
-  os.loadAPI("/rom/apis/colors") -- Loads the color API
   mon.setTextScale(size)
-  mon.setTextColor(col)
+  col
   local mon1 = term.redirect(mon)
   print(msg)
   term.redirect(mon1)
@@ -32,7 +31,8 @@ end
 while true do
   print("Waiting on message....\n")
   receive(data)
-  msg,size,col = data[1],data[2],data[3]
+  os.loadAPI("/rom/apis/colors") -- Loads the color API
+  msg,size,col = data[1],data[2],mon.setTextColor(data[3])
   print("Message:\n")
   print(msg) -- Prints message in terminal
   print("Table: \n" .. textutils.serialize(data) ) -- temporary code | To see all data received
