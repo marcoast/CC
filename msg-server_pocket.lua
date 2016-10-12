@@ -12,7 +12,7 @@ write("Enter text size, min. 0.5, incr. 0.5: ")
 size = tonumber(read())
 write("Enter text color: ")
 col = read()
-modem.transmit(281,713,{msg,size,"colors"..col})
+modem.transmit(281,713,{msg,size,"colors."..col})
 print("Sent '"..msg.."'")
 sleep(2)
 end

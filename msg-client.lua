@@ -3,7 +3,7 @@ term.setCursorPos(1,1)
 
 modem = peripheral.wrap("top") -- Wrap top modem.
 modem.open(281,713,832) 
-mon = peripheral.wrap("back") -- Wrap monitor behind the computer.
+mon = peripheral.wrap("right") -- Wrap monitor.
 
 function monCl() -- Clears the monitor.
   mon.clear()
