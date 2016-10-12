@@ -16,13 +16,15 @@ function receive() -- Receives the message to print.
   print("Message received from channel #"..senderChannel)
   print("Sending confirmation message on channel #"..replyChannel)
   modem.transmit(replyChannel,senderChannel,replyChannel)
-  print("Confirmation sent.") -- Server doesn't seem to receive the data (10/11/16)
+  print("Confirmation sent.") -- Server doesn't seem to receive the data (10/11/16) 
   return data
 end
 
 function screen() -- Prints the received message onto the monitor
   local size = data[2]
+  local color = data[3]
   mon.setTextScale(size)
+  mon.setTextColor(color)
   local mon1 = term.redirect(mon)
   print(data[1])
   term.redirect(mon1)
