@@ -22,7 +22,7 @@ end
 
 function screen() -- Prints the received message onto the monitor
   mon.setTextScale(size)
-  mon.setTextColor(col) -- Still giving an error because a number is needed; color API not loading?
+  mon.setTextColor( colors[col] ) -- Color code: [col] is the same as .col, which should work
   local mon1 = term.redirect(mon)
   print(msg)
   term.redirect(mon1)
