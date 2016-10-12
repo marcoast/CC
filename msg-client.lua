@@ -22,7 +22,7 @@ end
 
 function screen() -- Prints the received message onto the monitor
   mon.setTextScale(size)
-  local col = col
+  mon.setTextColor(col) -- Still giving an error because a number is needed; color API not loading?
   local mon1 = term.redirect(mon)
   print(msg)
   term.redirect(mon1)
@@ -32,7 +32,7 @@ while true do
   print("Waiting on message....\n")
   receive(data)
   os.loadAPI("/rom/apis/colors") -- Loads the color API
-  msg,size,col = data[1],data[2],mon.setTextColor(data[3])
+  msg,size,col = data[1],data[2],(data[3])
   print("Message:\n")
   print(msg) -- Prints message in terminal
   print("Table: \n" .. textutils.serialize(data) ) -- temporary code | To see all data received
