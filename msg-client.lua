@@ -21,9 +21,8 @@ function receive() -- Receives the message to print.
 end
 
 function screen() -- Prints the received message onto the monitor
-  mon
   mon.setTextScale(size)
-  col
+  local col = col
   local mon1 = term.redirect(mon)
   print(msg)
   term.redirect(mon1)
