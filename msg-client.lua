@@ -20,17 +20,18 @@ local function screen() -- Prints the received message onto the monitor
   -- [col] is the same as .col --
   mon.setBackgroundColor(colors[bgcol])
   mon.clear()
-  local function centerText(msg) -- Centers text on monitor only
-    local x,y = mon.getSize()
-    local centerXPos = ( x - string.len(msg) ) / 2
-    local centerYPos = ( y / 2)
-    monitor.setCursorPos( centerXPos + 1, centerYPos + 1 )
-    -----------------------------------------------
-    -- local mon1 = term.redirect(mon) -- # Allows for character wrapping of the text. 
-    -- print(msg) -- # Upgrade to word wrapping next.
-    -- term.redirect(mon1)
-    mon.write(msg) -- testing write instead of redirected print
-  end
+end
+
+local function centerText(msg) -- Centers text on monitor only
+  local x,y = mon.getSize()
+  local centerXPos = math.ceil( (x/2 - string.len(msg) ) / 2)
+  local centerYPos = ( y / 2)
+  mon.write(msg) -- testing write instead of redirected print
+  monitor.setCursorPos( centerXPos + 1, centerYPos + 1 )
+  -----------------------------------------------
+  -- local mon1 = term.redirect(mon) -- # Allows for character wrapping of the text. 
+  -- print(msg) -- # Upgrade to word wrapping next.
+  -- term.redirect(mon1)
 end
 
 while true do
@@ -41,4 +42,5 @@ while true do
   mon.clear()
   mon.setCursorPos(1,1)
   screen()
+  centerText(msg)
 end
