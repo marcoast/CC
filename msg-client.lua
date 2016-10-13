@@ -38,7 +38,7 @@ while true do
   -- [[
   os.loadAPI("/rom/apis/colors") -- Loads the color API, but testing to see if needed
   -- ]]
-  msg,size,col,bgcol = data[1],data[2],(data[3]),(data[4])
+  msg,size,col,bgcol = data[1],data[2],data[3],data[4]
   print("Message:\n")
   print(msg)
   -- [[
