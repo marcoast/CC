@@ -35,7 +35,6 @@ local function centerText(msg) -- Centers text on monitor only
   local mon1 = term.redirect(mon) -- # Allows for character wrapping of the text. 
   print(msg) -- # Upgrade to word wrapping next.
   term.redirect(mon1)
-  -- mon.write(msg) -- testing write instead of redirected print
 end
 
 while true do
