@@ -7,21 +7,24 @@ modem.open(281,713,832)
 local function sending()  -- Sends data table to client computer
 while true do
 	write("Enter message: ")
-	msg = read()
-	write("Enter text size, min. 0.5, incr. 0.5: ") -- # Needs to loop back here if incr. is not 0.5
-	size = tonumber(read())
+	local msg = read()
+	write("Enter text size (min. 0.5, incr. 0.5): ") -- # Needs to loop back here if incr. is not 0.5
+	local size = tonumber(read())
 		if size == "" then
 			size = 1
+		else
 		end
 	write("Enter text color: ")
-	col = read()
+	local col = read()
 		if col == "" then
 			col = "white"
+		else
 		end
 	write("Enter background color: ")
-	bgcol = read()
+	local bgcol = read()
 		if bgcol == "" then
 			bgcol = "black"
+		else
 		end
 	modem.transmit(281,713,{msg,size,col,bgcol})  -- Data transfer.
 	print("Sent '"..msg.."'")
