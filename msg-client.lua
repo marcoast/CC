@@ -26,12 +26,12 @@ local function centerText(msg) -- Centers text on monitor only
   local x,y = mon.getSize()
   local centerXPos = math.ceil( (x/2 - string.len(msg) ) / 2)
   local centerYPos = ( y / 2)
-  mon.write(msg) -- testing write instead of redirected print
   monitor.setCursorPos( centerXPos + 1, centerYPos + 1 )
   -----------------------------------------------
   -- local mon1 = term.redirect(mon) -- # Allows for character wrapping of the text. 
   -- print(msg) -- # Upgrade to word wrapping next.
   -- term.redirect(mon1)
+  mon.write(msg) -- testing write instead of redirected print
 end
 
 while true do
