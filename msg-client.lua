@@ -25,6 +25,7 @@ local function screen() -- Prints the received message onto the monitor
   mon.setTextColor( colors[col] )
   -- [col] is the same as .col --
   mon.setBackgroundColor( colors[bgcol] )
+  mon.clear()
   local mon1 = term.redirect(mon) -- # Allows for easier wrapping of the text onscreen.
   print(msg)
   term.redirect(mon1)
