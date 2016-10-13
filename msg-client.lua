@@ -13,8 +13,6 @@ end
 local function receive() -- Receives the message to print.
   event,modemSide,senderChannel,replyChannel,
   data,senderDistance = os.pullEvent("modem_message")
-  print("Message received from channel #"..senderChannel)
-  print("Sending computer ID on channel #"..replyChannel)
   local id = os.getComputerID()
   modem.transmit(replyChannel,senderChannel,id)
   modem.open(id)
@@ -35,12 +33,10 @@ end
 while true do
   print("Waiting on message....\n")
   receive(data)
-  msg,size,col,bgcol = data[1],data[2],data[3],data[4]
+  msg,size,col,bgcol = data[1],data[2],(data[3]),(data[4])
   print("Message:\n")
   print(msg)
-
-  -- print("Table: \n" .. textutils.serialize(data) ) -- temporary code | To see all data received
-  
+  print("Table: \n" .. textutils.serialize(data) ) -- temporary code | To see all data received
   print()
   monCl()
   screen()
