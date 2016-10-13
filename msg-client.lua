@@ -32,6 +32,6 @@ while true do
   msg,size,col,bgcol = data[1],data[2],(data[3]),(data[4])
   print("Message:\n" .. msg .. "\n" .. "Table: \n" .. textutils.serialize(data) .. "\n" )
   mon.clear()
-  mont.setCursorPos(1,1)
+  mon.setCursorPos(1,1)
   screen()
 end
