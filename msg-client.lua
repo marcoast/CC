@@ -24,7 +24,7 @@ end
 
 local function centerText(msg) -- Centers text on monitor only
   local x,y = mon.getSize()
-  local centerXPos = math.ceil( (x/2 - string.len(msg) ) / 2)
+  local centerXPos = math.ceil( x/2 - string.len(msg)/2 )
   local centerYPos = ( y / 2)
   ------- Debugging variables -------------------
   print(centerXPos)
