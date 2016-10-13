@@ -1,10 +1,10 @@
 term.clear()
 term.setCursorPos(1,1)
----------------------------------------------------
+-------------------------------------------------
 local modem = peripheral.wrap("top")
 modem.open(281,713,832)
 local mon = peripheral.wrap("right")
----------------------------------------------------
+-------------------------------------------------
 local function receive() -- Receives the message to print.
   event,modemSide,senderChannel,replyChannel,
   data,senderDistance = os.pullEvent("modem_message")
@@ -26,6 +26,10 @@ local function centerText(msg) -- Centers text on monitor only
   local x,y = mon.getSize()
   local centerXPos = math.ceil( (x/2 - string.len(msg) ) / 2)
   local centerYPos = ( y / 2)
+  ------- Debugging variables -------------------
+  print(centerXPos)
+  print(centerYPos)
+  -----------------------------------------------
   monitor.setCursorPos( centerXPos + 1, centerYPos + 1 )
   -----------------------------------------------
   -- local mon1 = term.redirect(mon) -- # Allows for character wrapping of the text. 
