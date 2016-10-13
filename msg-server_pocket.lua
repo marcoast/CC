@@ -14,7 +14,7 @@ while true do
 		if rSize == "" then
 			size = 1
 		else
-			tonumber(rSize)
+			size = tonumber(rSize)
 		end
 	-------------------------------------------------------	
 	write("Enter text color: ")
