@@ -5,11 +5,6 @@ local modem = peripheral.wrap("top") -- Wrap top modem.
 modem.open(281,713,832)
 local mon = peripheral.wrap("right") -- Wrap monitor.
 
-local function monCl() -- Clears the monitor.
-  mon.clear()
-  mon.setCursorPos(1,1)
-end
-
 local function receive() -- Receives the message to print.
   event,modemSide,senderChannel,replyChannel,
   data,senderDistance = os.pullEvent("modem_message")
@@ -35,10 +30,8 @@ while true do
   print("Waiting on message....\n")
   receive(data)
   msg,size,col,bgcol = data[1],data[2],(data[3]),(data[4])
-  print("Message:\n")
-  print(msg)
-  print("Table: \n" .. textutils.serialize(data) ) -- temporary code | To see all data received
-  print()
-  monCl()
+  print("Message:\n" .. msg .. "\n" .. "Table: \n" .. textutils.serialize(data) .. "\n" )
+  mon.clear()
+  mon.setCursorPos(1,1)
   screen()
 end
