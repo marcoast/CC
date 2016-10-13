@@ -8,12 +8,15 @@ local function sending()  -- Sends data table to client computer
 while true do
 	write("Enter message: ")
 	local msg = read()
-	write("Enter text size (min. 0.5, incr. 0.5): ") -- # Needs to loop back here if incr. is not 0.5
-	local size = tonumber(read())
-		if size == "" then
+	write("Enter text size (min. 0.5, incr. 0.5): ") -- # Needs to loop back here from error if incr. is not 0.5
+	-- # rSize = input string | size = number sent in table
+	local rSize = read() 
+		if rSize == "" then
 			size = 1
 		else
+			tonumber(rSize)
 		end
+	-------------------------------------------------------	
 	write("Enter text color: ")
 	local col = read()
 		if col == "" then
@@ -40,4 +43,4 @@ while true do
 	end 
 end
 
-parallel.waitForAll(sending,receiving)
+parallel.waitForAll(receiving,sending)
