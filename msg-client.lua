@@ -1,10 +1,10 @@
 term.clear()
 term.setCursorPos(1,1)
-
-local modem = peripheral.wrap("top") -- Wrap top modem.
+---------------------------------------------------
+local modem = peripheral.wrap("top")
 modem.open(281,713,832)
-local mon = peripheral.wrap("right") -- Wrap monitor.
-
+local mon = peripheral.wrap("right")
+---------------------------------------------------
 local function receive() -- Receives the message to print.
   event,modemSide,senderChannel,replyChannel,
   data,senderDistance = os.pullEvent("modem_message")
@@ -16,20 +16,20 @@ end
 
 local function screen() -- Prints the received message onto the monitor
   mon.setTextScale(size)
-  mon.setTextColor( colors[col] )
+  mon.setTextColor(colors[col])
   -- [col] is the same as .col --
-  mon.setBackgroundColor( colors[bgcol] )
+  mon.setBackgroundColor(colors[bgcol])
   mon.clear()
-    local function centerText() -- Centers text on monitor only
-      local x,y = mon.getSize()
-      local x2,y2 = mon.getCursorPos()
-      mon.setCursorPos(( x - string.len(msg) ) / 2, (y2/2))
-      -----------------------------------------------
-      local mon1 = term.redirect(mon) -- # Allows for character wrapping of the text. 
-      print(msg) -- # Upgrade to word wrapping next.
-      term.redirect(mon1)
-      -----------------------------------------------
-    end
+  local function centerText() -- Centers text on monitor only
+    local x,y = mon.getSize()
+    local centerXPos = ( x - string.len(msg) ) / 2
+    local centerYPos = ( y / 2)
+    monitor.setCursorPos( centerXPos + 1, centerYPos + 1 )
+    -----------------------------------------------
+    local mon1 = term.redirect(mon) -- # Allows for character wrapping of the text. 
+    print(msg) -- # Upgrade to word wrapping next.
+    term.redirect(mon1)
+  end
 end
 
 while true do
