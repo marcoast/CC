@@ -29,8 +29,8 @@ end
 local function giveTicket() -- Gets specific player data via sensor, and gives 2 copies of tickets
 	write("Enter payment: ")
 	payment = read()
-	local printTicket = ticket.createTicket( pData[1]["name"] .. " " .. time.getTime("cst",0,"",2) .. " $" .. payment,1 )  
-	printTicket
+	ticket.createTicket( pData[1]["name"] .. " " .. time.getTime("cst",0,"",2) .. " $" .. payment,1 )  
+	
 end
 
 
