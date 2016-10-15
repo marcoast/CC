@@ -2,29 +2,50 @@
 local ticket = peripheral.wrap("left")
 local drive = peripheral.wrap("right")
 local sensor = peripheral.wrap("top")
+local pData = sensor.getPlayers()
+local fileWrite = fs.open("/paystubs/players","w")
+local fileRead = fs.open("/paystubs/players","r")
 
-local function getTimeAPI()
+local function checkTimeAPI()
 	if fs.exists("/time") == true then
 	else
 		shell.run("pastebin ","get ","TNLjCCKq ","time")
 	end
 end
 
-local function giveTicket() -- Gets specific player data via sensor, and gives ticket
-	if rs.getInput("front") ==  true then
-		local pData = sensor.getPlayers()
-		-- if statement for if disk matches player uuid
-		ticket.createTicket(pData[1]["name"] .. time.getTime("cst",0,"",2),1)  -- create ticket with name and timestamp
-	end
-	-- log pData[1]["uuid"] and pData[1]["name"] to a file on the computer, named as the current date and time, then copy it to the disk
+local function getData() -- Gets and saves the full player data from nearby players in a file.
+	fileWrite.write( textutils.serialize(pData) )
+	fileWrite.close()
+	-- # Break down time into mm-dd-yyyy hh:mm AM/PM to store into file
 end
 
-local function senseDisk() -- Senses whether disk is inserted
-	-- Code here...
+local function loadData() -- Loads the whole file.
+	fileRead.readAll()
+	readData = textutils.serialize(1)
+	print(readData)
+	debug.log(readData)
 end
 
-getTimeAPI()
+local function giveTicket() -- Gets specific player data via sensor, and gives 2 copies of tickets
+	write("Enter payment: ")
+	payment = read()
+	printTicket = ticket.createTicket( pData[1]["name"] .. " " .. time.getTime("cst",0,"",2) .. " $" .. payment,1 )  
+	printTicket
+	sleep(10)
+	printTicket
+end
+
+
+checkTimeAPI()
 os.loadAPI("/time")
-giveTicket()
--- debug.log(pData)
-time.printTime("cst",0,"",2)
+if rs.getInput("front") == true then
+	getData()
+	giveTicket()
+	-- debug.log(pData)
+	time.printTime("cst",0,"",2)
+else
+	os.reboot()
+end
+
+
+save
