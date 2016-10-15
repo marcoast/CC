@@ -10,19 +10,18 @@ local function getTimeAPI()
 	end
 end
 
-local function sensePlayer() -- Gets specific player data via sensor
+local function giveTicket() -- Gets specific player data via sensor, and gives ticket
 	if rs.getInput("front") ==  true then
-		local pData = sensor.getPlayerByName("DroMania")
-		local tNum = math.random()
-		print("\nTicket #:" .. tNum )
+		local pData = sensor.getPlayers()
 	end
 end
+
 local function senseDisk() -- Senses whether disk is inserted
 	-- Code here...
 end
 
 getTimeAPI()
 os.loadAPI("/time")
-sensePlayer()
+giveTicket()
 debug.log(pData)
 time.printTime("cst",0,"",2)
