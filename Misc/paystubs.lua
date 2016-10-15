@@ -13,7 +13,8 @@ end
 local function giveTicket() -- Gets specific player data via sensor, and gives ticket
 	if rs.getInput("front") ==  true then
 		local pData = sensor.getPlayers()
-		ticket.createTicket(pData[1]["uuid"],1)
+		-- if statement for if disk matches player uuid
+		ticket.createTicket(pData[1]["name"] .. time,1)  -- create ticket with name and timestamp
 	end
 	-- log pData[1]["uuid"] and pData[1]["name"] to a file on the computer, named as the current date and time, then copy it to the disk
 end
