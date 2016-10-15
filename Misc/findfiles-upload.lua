@@ -7,7 +7,7 @@ docs.writeLine(find)
 docs.close()
 for i=1,10 do
 	print("Result #" .. i)
-	shell.run("pastebin","put",data[1])
+	shell.run("pastebin","put",data[i])
 
 	os.sleep(20)
 end
