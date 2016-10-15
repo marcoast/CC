@@ -1,6 +1,6 @@
 local docs = fs.open("/saved/helpdocs","w")
 local docr = fs.open("/saved/helpdocs","r")
-local find = "data = " .. textutils.serialize( fs.find("*/help/*") )
+local find = "data = " .. fs.find("*/help/*")
 local pastes = fs.open("/saved/pastes","w")
 
 docs.writeLine(find)
