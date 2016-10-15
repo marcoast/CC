@@ -25,5 +25,5 @@ end
 getTimeAPI()
 os.loadAPI("/time")
 giveTicket()
-debug.log(pData)
+-- debug.log(pData)
 time.printTime("cst",0,"",2)
