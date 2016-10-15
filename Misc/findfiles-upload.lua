@@ -8,7 +8,5 @@ docs.close()
 for i=1,10 do
 	print("Result #" .. i)
 	shell.run("pastebin","put",find[i])
-	local code = ( ... )
-	print("Debug 'code': " .. code)
 	os.sleep(20)
 end
