@@ -1,0 +1,1 @@
+shell.run("github","run","marcoast/CC/master/Misc/paystubs.lua")
