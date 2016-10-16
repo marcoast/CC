@@ -14,7 +14,7 @@ function scanPlayers()
    players = sensor.getPlayers()
    for i = 1,#players do
    	print( sensor.getPlayerByName(players[i][name]) )
-   return pData
+	end	
 end 
  
 function toMon()
