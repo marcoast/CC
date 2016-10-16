@@ -8,15 +8,14 @@ local copydrive = peripheral.wrap("drive_352")
 function clearMon()
   monitor.clear()
   monitor.setCursorPos(1,1)
- end
+end
  
 function scanPlayers()
-   local players = sensor.getPlayers()
-   write("Enter player name: ")
-   name = read()
-   pData = sensor.getPlayerByName(name)
+   players = sensor.getPlayers()
+   for i = 1,#players do
+   	print( sensor.getPlayerByName(players[i][name]) )
    return pData
- end 
+end 
  
 function toMon()
   oldTerm = term.redirect(monitor)
