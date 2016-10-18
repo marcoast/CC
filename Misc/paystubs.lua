@@ -6,7 +6,7 @@ local sensor = peripheral.wrap("top")
 -------------------------------------------------
 local players = sensor.getPlayers()
 local pData = sensor.getPlayerData(players[i].name)
-local holdingID = pData.all().living.heldItem.id
+local heldID = pData.all().living.heldItem.id
 -------------------------------------------------
 local fileWrite = fs.open("/paystubs/players","a")
 local fileRead = fs.open("/paystubs/players","r")
@@ -41,7 +41,7 @@ local function giveTicket() -- Gets specific player data via sensor, and gives 2
 	payment = read()
 	-- if [time on ticket].preferredLocalDateTime > stampWeek.preferredLocalDateTime do
 	for i = 1,#pData do 
-		if pData == nil then 
+		if pData ~= nil then 
 			
 end
 
