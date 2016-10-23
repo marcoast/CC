@@ -12,7 +12,7 @@ while true do
 	if ( dist < far  or msg == "open" ) then
 		rs.setOutput(side,true)
 		sleep(2)
-	elseif dist > far
+	elseif dist > far then
 		rs.setOutput(side,false)
 		sleep(1)
 	else
