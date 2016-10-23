@@ -14,5 +14,7 @@ while true do
 		sleep(2)
 	elseif dist > far
 		rs.setOutput(side,false)
+		sleep(1)
+	else
 	end
 end
